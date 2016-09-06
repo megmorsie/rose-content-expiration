@@ -16,13 +16,13 @@ if ( !(function_exists(rose_content_expiration_shortcode)) ) {
 			'end' => '19 January 2038 03:14:07', // 2147483647, highest Unix time
 		), $atts );
 
-		$start_time = strtotime( $a['start'] );
-		$end_time = strtotime( $a['end'] );
-
 		// Set Timezone
 		$timezone = get_option('timezone_string');
 		date_default_timezone_set($timezone); 
 		$today = time();
+		
+		$start_time = strtotime( $a['start'] );
+		$end_time = strtotime( $a['end'] );
 
 		// Support Use of Shortcodes Within [temp]
 		$content = do_shortcode($content);
